@@ -36,5 +36,7 @@ def predict():
         # Pass the result back to the frontend
         return render_template('index.html', prediction=result)
 
+# ✅ This part ensures it works both locally and on servers like Render
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Don't use debug=True for production (it can be insecure)
+    app.run(host='0.0.0.0', port=5000)
